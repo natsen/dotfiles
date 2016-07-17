@@ -32,7 +32,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-" linter
+" linter - looks for checkers in the path. for javascript 
+" npm install -g jshint
 Plugin 'scrooloose/syntastic'
 " syntax highlighting
 Plugin 'pangloss/vim-javascript'
@@ -57,6 +58,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+" vim-tmux-navigator is slow when vi uses tcsh - tcsh has longer shell startup
+" time
+set shell=/bin/bash\ -i
 syntax enable
 set t_Co=256
 "indentation without hard tabs
@@ -70,9 +74,19 @@ set laststatus=2
 set number
 set relativenumber
 
+" Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
+
+
 "key mappings
 let mapleader = ","
 nmap <leader>nt :NERDTree<cr>
 nmap <leader> :CtrlP<cr>
 " to get into that autocompleted braces -- finally
 imap <C-c> <CR><Esc>O
+imap <C-g> <Esc>$a
