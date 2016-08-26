@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+# install zsh
+# install tmux
+# install prezto
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/dotfiles/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
