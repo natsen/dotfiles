@@ -1,0 +1,29 @@
+For Ubuntu 16.04:
+Create the file /etc/apt/sources.list.d/perforce.list with the following content:
+deb http://package.perforce.com/apt/ubuntu/ xenial release
+# add perforce package signing key
+wget -qO - https://package.perforce.com/perforce.pubkey | sudo apt-key add -
+
+
+sudo apt-add-repository ppa:webupd8team/java
+####################3
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install git zsh oracle-java8-installer vim tmux
+sudo apt-get install zsh
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+######################powerline fonts
+# clone
+git clone https://github.com/powerline/fonts.git
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+###############################
+
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+
+
+
