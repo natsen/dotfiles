@@ -60,7 +60,7 @@ filetype plugin indent on    " required
 
 " vim-tmux-navigator is slow when vi uses tcsh - tcsh has longer shell startup
 " time
-set shell=/bin/bash\ -i
+set shell=/usr/bin/zsh\ -l
 syntax enable
 set t_Co=256
 "indentation without hard tabs
