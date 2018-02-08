@@ -11,7 +11,7 @@ wget -qO - https://package.perforce.com/perforce.pubkey | sudo apt-key add -
 sudo apt-add-repository ppa:webupd8team/java
 ####################3
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install git zsh oracle-java8-installer vim tmux mvn
+sudo apt-get install git zsh oracle-java8-installer vim tmux maven
 sudo apt-get install zsh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ######################powerline fonts
@@ -23,6 +23,7 @@ cd fonts
 # clean-up a bit
 cd ..
 rm -rf fonts
+select "Source code pro for powerline regular 12" from terminal->preferences->..->fonts
 ###############################
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
